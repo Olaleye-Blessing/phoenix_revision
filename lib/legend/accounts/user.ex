@@ -7,6 +7,7 @@ defmodule Legend.Accounts.User do
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
+    field :username, :string
 
     timestamps()
   end
@@ -30,9 +31,16 @@ defmodule Legend.Accounts.User do
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:email, :password])
+    |> cast(attrs, [:email, :password, :username])
     |> validate_email()
     |> validate_password(opts)
+    |> validate_username()
+  end
+
+  defp validate_username(changeset) do
+    changeset
+    |> validate_required([:username])
+    |> validate_length(:username, min: 2, max: 20)
   end
 
   defp validate_email(changeset) do

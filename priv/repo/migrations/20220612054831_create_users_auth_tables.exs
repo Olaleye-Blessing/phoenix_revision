@@ -8,6 +8,7 @@ defmodule Legend.Repo.Migrations.CreateUsersAuthTables do
       add :email, :citext, null: false
       add :hashed_password, :string, null: false
       add :confirmed_at, :naive_datetime
+      add :username, :string, null: false
       timestamps()
     end
 
