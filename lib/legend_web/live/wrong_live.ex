@@ -4,7 +4,7 @@ defmodule LegendWeb.WrongLive do
   @max_trial 5
 
   # establish initial state
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
     {:ok,
      assign(socket,
        score: 0,
@@ -14,7 +14,8 @@ defmodule LegendWeb.WrongLive do
        random_num: createRandom(),
        trial: @max_trial,
        restart: false,
-       date: time()
+       date: time(),
+       session_id: session["live_socket_id"]
      )}
   end
 
@@ -41,6 +42,10 @@ defmodule LegendWeb.WrongLive do
       <button phx-click="restart">Restart</button>
     <% end %>
     <p>It's <%= @date %></p>
+    <pre>
+    session id: <%= @session_id %>
+    current user: <%= @current_user.email %>
+    </pre>
     """
   end
 

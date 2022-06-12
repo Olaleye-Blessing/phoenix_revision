@@ -1,0 +1,15 @@
+Imagine we have two different live views that can be visited by admins: Admin.GameSalesLive and Admin.SurveyResultsLive.
+The first live view shows the admin a report on game sales, and the second shows them the results of user surveys.
+Let’s say we want to group them together with a shared root layout. We can do so in our router.ex file like this:
+
+scope "/", LegendWeb do
+ pipe_through [:browser, :require_authenticated_admin]
+
+ live_session :default, root_layout: {LegendWeb.LayoutView, "admin.html"} do
+    live "/game-sales", Admin.GameSalesLive
+    live "/survey-results", Admin.SurveyResultsLive
+ end
+end
+-------------------------------------------------------------------------------------------------------------
+
+The on_mount lifecycle hook will fire before a live view mounts, making it the perfect place to isolate re-usable logic that can be shared among live views in a live session.
