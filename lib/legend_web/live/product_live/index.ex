@@ -6,7 +6,13 @@ defmodule LegendWeb.ProductLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, :products, list_products())}
+    # {:ok, assign(socket, :products, list_products())}
+    {
+      :ok,
+      socket
+      |> assign(:products, list_products())
+      |> assign(:greeting, "Welcome to Legend!")
+    }
   end
 
   @impl true

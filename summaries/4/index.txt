@@ -1,0 +1,4 @@
+<span><%= live_patch "Edit", to: Routes.product_index_path(@socket, :edit, product) %></span>
+live_patch will change the URL in the browser bar but won't send a web request to reload the page. the workflow for live_patch is handle_params/3 is called, follwed by render/1
+
+push_patch also works the same way but it is used on the server side
