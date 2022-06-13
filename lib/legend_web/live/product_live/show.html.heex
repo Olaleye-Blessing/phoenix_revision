@@ -1,3 +1,11 @@
+<pre>
+  Task 1 answers
+  a. /products/:id gets invoked
+  b. It adds the :live_action key to the socket
+  c. The function gets the id params from the accessed route, gets a product with that id, chnages the page title according to the live_action, and passed all these to the socket
+  d. It checks if the live_action is edit. If so, it renders it, otherwise skips it. The form supports save and validate events. Validate is fired when any of the form inputs changes, and svae is fired when the form is submitted
+</pre>
+
 <h1>Show Product</h1>
 
 <%= if @live_action in [:edit] do %>
