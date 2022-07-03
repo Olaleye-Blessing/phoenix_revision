@@ -1,5 +1,16 @@
 <h1>Show Product</h1>
 
+<article class="column">
+  <img
+    alt="product image" width="200" height="200"
+    src={
+      Routes.static_path(
+      @socket,
+      (@product.image_upload || ~s[/images/default-thumbnail.png]))
+    }
+  >
+</article>
+
 <%= if @live_action in [:edit] do %>
   <.modal return_to={Routes.product_show_path(@socket, :show, @product)}>
     <.live_component

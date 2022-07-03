@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :legend, Legend.Repo,
   username: "postgres",
-  password: "JamesEsther1@",
+  password: "postgres",
   hostname: "localhost",
   database: "legend_dev",
   stacktrace: true,

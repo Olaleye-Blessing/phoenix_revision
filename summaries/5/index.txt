@@ -1,0 +1,2 @@
+mix ecto.gen.migration file_name to create migration file
+run mix ecto.migrate each time you create a migration file

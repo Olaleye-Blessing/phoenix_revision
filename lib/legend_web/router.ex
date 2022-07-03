@@ -77,6 +77,7 @@ defmodule LegendWeb.Router do
 
     live_session :default, on_mount: LegendWeb.UserAuthLive do
       live "/guess", WrongLive
+      live "/promo", PromoLive
 
       live "/products", ProductLive.Index, :index
       live "/products/new", ProductLive.Index, :new
