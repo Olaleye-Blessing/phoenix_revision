@@ -1,0 +1,8 @@
+<section class="row">
+  <h1>Survey</h1>
+</section>
+<%= if @demographic do %>
+  <DemographicLive.Show.details demographic={@demographic} />
+<% else %>
+  <h2>Demographic Form coming soon!</h2>
+<% end %>

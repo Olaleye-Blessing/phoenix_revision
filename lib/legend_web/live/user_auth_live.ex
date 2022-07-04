@@ -2,11 +2,13 @@ defmodule LegendWeb.UserAuthLive do
   import Phoenix.LiveView
   alias Legend.Accounts
 
-  def on_mount(_, params, %{"user_token" => user_token}, socket) do
-    user = Accounts.get_user_by_session_token(user_token)
-    socket = socket |> assign(:current_user, user)
+  def on_mount(_, _params, %{"user_token" => user_token} = _session, socket) do
+    socket =
+      assign_new(socket, :current_user, fn ->
+        Accounts.get_user_by_session_token(user_token)
+      end)
 
-    if user do
+    if socket.assigns.current_user do
       {:cont, socket}
     else
       {:halt, redirect(socket, to: "/login")}
