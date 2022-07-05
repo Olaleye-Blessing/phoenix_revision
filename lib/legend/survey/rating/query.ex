@@ -1,6 +1,6 @@
-defmodule Pento.Survey.Rating.Query do
+defmodule Legend.Survey.Rating.Query do
   import Ecto.Query
-  alias Pento.Survey.Rating
+  alias Legend.Survey.Rating
 
   def base do
     Rating

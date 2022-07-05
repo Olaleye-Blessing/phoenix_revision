@@ -3,6 +3,13 @@
 </section>
 <%= if @demographic do %>
   <DemographicLive.Show.details demographic={@demographic} />
+  <RatingLive.Index.products
+    products={@products}
+    current_user={@current_user}
+    demographic={@demographic}
+  />
 <% else %>
-  <h2>Demographic Form coming soon!</h2>
+  <!--
+  <.live_component module={Form} id="demographic-form" user={@current_user} />
+  -->
 <% end %>
