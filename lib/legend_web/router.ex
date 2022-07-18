@@ -85,6 +85,8 @@ defmodule LegendWeb.Router do
       live "/products/:id/edit", ProductLive.Index, :edit
       live "/products/:id", ProductLive.Show, :show
       live "/products/:id/show/edit", ProductLive.Show, :edit
+
+      live "/admin-dashboard", Admin.DashboardLive
     end
 
     get "/users/settings", UserSettingsController, :edit

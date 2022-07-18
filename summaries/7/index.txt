@@ -1,1 +1,1 @@
-page 
+Calling use with some module will make all of the functions of that module available in whichever module you are calling use.
